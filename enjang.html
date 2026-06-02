@@ -1,1 +1,67 @@
+*PS E:\ukk26> git clone https://github.com/diskaaja15/dska.git (link gitmu dwe"!)*
+*Ke Browser Ketik Docker hub > Search httpd > copy comand di bawah logo* 
+*FROM httpd:2.4*
+*COPY . /usr/local/apache2/htdocs/*
+*Lalu Ctrl S*
+ 
+*PS E:\ukk26> cd .\dska\*
 
+*PS E:\ukk26\dska> docker build -t dska:latest .*
+[+] Building 4.5s (7/7) FINISHED                            docker:desktop-linux
+ => [internal] load build definition from Dockerfile                        0.0s
+ => => transferring dockerfile: 88B                                         0.0s
+ => [internal] load metadata for docker.io/library/httpd:2.4                2.3s
+ => [internal] load .dockerignore                                           0.0s
+ => => transferring context: 2B                                             0.0s
+ => [internal] load build context                                           0.0s
+ => => transferring context: 5.13kB                                         0.0s
+ => CACHED [1/2] FROM docker.io/library/httpd:2.4@sha256:2a7deaaaf357261a1  0.0s
+ => => resolve docker.io/library/httpd:2.4@sha256:2a7deaaaf357261a1dffcb8f  0.0s
+ => [2/2] COPY . /usr/local/apache2/htdocs/                                 0.2s
+ => exporting to image                                                      1.7s
+ => => exporting layers                                                     1.2s
+ => => exporting manifest sha256:23e3e8ffc9391d4ee92d69675ca4aa0554b55e3f7  0.0s
+ => => exporting config sha256:d2fbf34a5eba419236b2ab32d9f62afa3d3da1239e8  0.0s
+ => => exporting attestation manifest sha256:a61b79b26416eb9e2a3b6d1f534f3  0.1s
+ => => exporting manifest list sha256:2c577b4be381d38d86ec1e743108b968bce5  0.0s
+ => => naming to docker.io/library/dska2:v2                                 0.0s
+ => => unpacking to docker.io/library/dska2:v2                              0.2s
+
+*PS E:\ukk26\dska> docker image ls*
+                                                             i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+docker-alpine:latest   8e2ef0032d0f         13MB         3.86MB        
+dska2:v2               2c577b4be381        230MB         72.8MB        
+dska3:v3               e8651e554de8        230MB         72.8MB    U   
+dska4:v4               e88c6bf4da04        230MB         72.8MB    U   
+dska:latest            7efcd997a782        230MB         72.8MB    U   
+hello-alpine:latest    78e7e0c09394       96.6MB         20.8MB        
+httpd:alpine           8f26f33a7002       97.8MB         22.1MB        
+kel4:latest            ca55cab0415c       99.1MB         29.2MB    U   
+my-html-app:latest     45c5e2d610a7        237MB         62.9MB        
+nginx:alpine           1d13701a5f9f       93.4MB         26.9MB        
+nginx:latest           6e23479198b9        240MB         65.8MB    U   
+redis:8.4.1-trixie     90050675141b        202MB         54.5MB        
+redis:latest           7b6fb55d8b0a        204MB         55.2MB        
+ukk26:latest           09cf6207a9fa        230MB         72.8MB    U   
+web-custom:latest      84c03f0f13a5       96.6MB         20.8MB        
+web-nginx2:latest      137ebc7b4d9f       92.2MB         25.9MB        
+web:latest             b6904f316d89        237MB         62.9MB    U   
+
+*PS E:\ukk26\dska> docker run -d -p 8080:80 dska:latest*
+6d3e7afd962d4e2e61ed021ae9520ec7417c191e4fdaaf0fac12b6e4a9b8dcb9
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint elastic_bhaskara (e6bd565c6df5fdf092d7fb8ab49c96a2ec20534e36e42fc7d8affd29d38c20ed): Bind for 0.0.0.0:8082 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+*PS E:\ukk26\dska> docker run -d -p 8080:80 dska:latest*
+174c51c0a0d08c7f0f172b6ba3007c5189278f8f17e1195eb74af8f0513418ef
+
+*PS E:\ukk26\dska> docker container ls*
+CONTAINER ID   IMAGE          COMMAND              CREATED          STATUS          PORTS                                     NAMES
+174c51c0a0d0   dska2:v2       "httpd-foreground"   14 seconds ago   Up 13 seconds   0.0.0.0:8085->80/tcp, [::]:8085->80/tcp   intelligent_dirac
+1f6f2be28f78   dska4:v4       "httpd-foreground"   3 minutes ago    Up 3 minutes    0.0.0.0:8084->80/tcp, [::]:8084->80/tcp   crazy_mestorf
+e9cb7f631c4d   dska3:v3       "httpd-foreground"   9 minutes ago    Up 9 minutes    0.0.0.0:8083->80/tcp, [::]:8083->80/tcp   gracious_goldstine
+7b71b952ff50   87891d38085a   "httpd-foreground"   14 minutes ago   Up 14 minutes   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   magical_poitras
+e9ceac8b5d2c   dska:latest    "httpd-foreground"   24 minutes ago   Up 24 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   priceless_snyder
+ae3632034f94   ukk26:latest   "httpd-foreground"   37 minutes ago   Up 37 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   pedantic_euler
