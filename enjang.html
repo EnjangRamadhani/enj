@@ -65,3 +65,6 @@ e9cb7f631c4d   dska3:v3       "httpd-foreground"   9 minutes ago    Up 9 minutes
 7b71b952ff50   87891d38085a   "httpd-foreground"   14 minutes ago   Up 14 minutes   0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   magical_poitras
 e9ceac8b5d2c   dska:latest    "httpd-foreground"   24 minutes ago   Up 24 minutes   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   priceless_snyder
 ae3632034f94   ukk26:latest   "httpd-foreground"   37 minutes ago   Up 37 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   pedantic_euler
+
+docker build -t enjag-ramadhani-tugas-p.web:latest .
+docker run -d -p 8081:80 enjag-ramadhani-tugas-p.web:latest
